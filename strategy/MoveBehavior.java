@@ -6,6 +6,8 @@ import java.util.concurrent.TimeUnit;
 public abstract class MoveBehavior {
     private static final int DEFAULT_SPEED = 200;
     private static final int NUM_MOVES = 30;
+    //Sleep coefficient-1000 ms/s * 100. So speed 100 moves once / second, 200 moves twice, etc.
+    private static final int SLEEP_COEFFICIENT = 100000;
 
     /**
      * Moves the character across the screen
@@ -25,7 +27,7 @@ public abstract class MoveBehavior {
     public void move(ArrayList<String> character, int speed) {
         if(speed <= 0) //Making sure the value is valid
             speed = DEFAULT_SPEED;
-        int sleepTime = 100000/speed; //So speed 100 moves once / second, 200 moves twice, etc.
+        int sleepTime = SLEEP_COEFFICIENT/speed;
         for(int moves = 0; moves < NUM_MOVES; moves++) {
             displayCharacter(character);
             sleep(sleepTime);
