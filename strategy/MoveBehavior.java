@@ -23,7 +23,16 @@ public abstract class MoveBehavior {
      *                  is fast
      */
     public void move(ArrayList<String> character, int speed) {
-        // TBD
+        if(speed <= 0) //Making sure the value is valid
+            speed = DEFAULT_SPEED;
+        int sleepTime = 100000/speed; //So speed 100 moves once / second, 200 moves twice, etc.
+        for(int moves = 0; moves < NUM_MOVES; moves++) {
+            displayCharacter(character);
+            sleep(sleepTime);
+            clear();
+            pushCharacterForward(character);
+        }
+        
     }
 
     /**
