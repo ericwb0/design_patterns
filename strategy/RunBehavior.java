@@ -1,4 +1,3 @@
-//CSCE 247 - Eric Burkholder
 package strategy;
 
 import java.util.ArrayList;
