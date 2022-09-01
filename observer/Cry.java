@@ -1,7 +1,7 @@
 package observer;
 
 /**
- * Cry enum
+ * Cry enumeration to communticate between Subject and Observers 
  * @author Eric Burkholder
  */
 public enum Cry {
