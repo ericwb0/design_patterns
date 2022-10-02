@@ -42,6 +42,9 @@ public class ClothingItem {
      * @param season season enum to add
      */
     public void addSeason(Season season) {
+        // No duplicate seasons
+        if(this.hasSeason(season))
+            return;
         seasons.add(season);
     }
 
