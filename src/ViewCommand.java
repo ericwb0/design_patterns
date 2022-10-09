@@ -1,13 +1,25 @@
+/**
+ * 
+ * @author wyattcarhart
+ *
+ */
+
 public class ViewCommand extends Command {
    
-    //May need code added, just removing inheritance errors
+    /**
+     * calls superclass constructor Command(doc)
+     * @param doc specifies the Command's Document
+     */
     public ViewCommand(Document doc)
     {
         super(doc);
     }
 
+    /**
+     * returns the output of document.view()
+     */
     public String execute()
     {
-        return "";
+        return document.view();
     }
 }

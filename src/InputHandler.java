@@ -7,6 +7,9 @@ import java.util.HashMap;
  */
 public class InputHandler {
 	
+	/**
+	 * The String associated with each command
+	 */
 	public static final String[] KEYS = {"append","write","view","save"};
     
 	private HashMap<String,Command> commands;
@@ -28,7 +31,7 @@ public class InputHandler {
 	}
 	
 	/**
-	 * Finds the command that corresponds to the input and executes the command on its document. if the input does not match a command or it matches a null command, displays an error message.
+	 * Finds the command that corresponds to the input and executes the command on its document. prints the output of the command's execute() method. if the input does not match a command or it matches a null command, displays an error message.
 	 * @param data the input
 	 */
 	public void inputEntered(String data) {
@@ -37,6 +40,6 @@ public class InputHandler {
 			System.out.println("Sorry, we don't recognize that command");
 			return;
 		}
-		command.execute();
+		System.out.println(command.execute());
 	}
 }
