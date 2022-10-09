@@ -27,6 +27,10 @@ public class InputHandler {
 		commands.put(KEYS[3], new SaveCommand(document));
 	}
 	
+	/**
+	 * Finds the command that corresponds to the input and executes the command on its document. if the input does not match a command or it matches a null command, displays an error message.
+	 * @param data the input
+	 */
 	public void inputEntered(String data) {
 		Command command = commands.get(data.toLowerCase());
 		if(command == null) {
