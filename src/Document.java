@@ -30,21 +30,16 @@ public class Document {
         // Variables to improve readability
         // Store longest length of a line because getLongestLength would need to be called twice
         int longestLength = getLongestLength();
+
         // Using String.format(%<-length>s, str) pads str with spaces on the right to get to length
         String rightPadFormat = "%" + (-1*(longestLength + STR_PADDING)) + "s";
-        /* 
-         * Same concept but this string is always the same, so make the left margin String
-         * Here we do STR_PADDING+1 because the left edge "|" is included, so padding +1 char
-         */
-        String leftMargin = String.format("%" + (-1*(STR_PADDING+1)) + "s", "|");
+
+        // Left margin is just | with " " for the padding
+        String leftMargin = "|" + " ".repeat(STR_PADDING);
         int totalWidth = longestLength + 2*(STR_PADDING+1); // Total width, excluding endline
 
-        /*
-         * Top/bottom edge is just "_" repeated totalWidth times. Since the %<n>s format fills with
-         * spaces, the edges are just the spaces replaced with "_"
-         */
-        String topSpacing = String.format("%" + totalWidth + "s", "");
-        String edge = topSpacing.replace(" ", "_");
+        // Top/bottom edge is just "_" repeated totalWidth times, with endline at the end
+        String edge = "_".repeat(totalWidth) + "\n";
 
         /* 
          * The number of chars in the sequence will be the width * num lines.
@@ -53,8 +48,10 @@ public class Document {
          * We do this to pre-set the capacity to avoid a bunch of capacity increase operations.
          */
         StringBuilder viewStr = new StringBuilder((totalWidth+1)*(lines.size()+3));
-        // Top edge/spacing
-        viewStr.append(edge).append('\n').append(topSpacing).append('\n');
+
+        // Add top edge with an extra empty line at the top
+        viewStr.append(edge).append("\n");
+
         // This operation adds "|     " + "<line>     " + "|\n" to the string
         for(String line : lines)
             viewStr.append(leftMargin).append(String.format(rightPadFormat, line)).append("|\n");
