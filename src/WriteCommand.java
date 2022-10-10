@@ -10,13 +10,15 @@ public class WriteCommand extends Command {
     private Scanner in;
     
     /**
-     * WriteCommand constructor which calls its super class's constructor
+     * WriteCommand constructor which calls its super class's constructor and instantiates the
+     * scanner
      * 
      * @param doc the document to write t0
      */
     public WriteCommand(Document doc)
     {
         super(doc);
+        in = new Scanner(System.in);
     }
 
     /**
@@ -26,9 +28,8 @@ public class WriteCommand extends Command {
      */
     public String execute()
     {
-        System.out.println("Enter text: ");
+        System.out.print("Enter text: ");
         String line = document.write(in.nextLine());
-        System.out.println();
         return line;
     }
 }

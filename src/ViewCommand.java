@@ -8,6 +8,7 @@ public class ViewCommand extends Command {
    
     /**
      * calls superclass constructor Command(doc)
+     * 
      * @param doc specifies the Command's Document
      */
     public ViewCommand(Document doc)

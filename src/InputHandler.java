@@ -16,6 +16,7 @@ public class InputHandler {
 	
 	/**
 	 * Creates a new InputHandler for the specified document; adds Commands to commands
+	 * 
 	 * @param document the document for the commands to be executed on
 	 */
 	public InputHandler(Document document) {
@@ -31,15 +32,19 @@ public class InputHandler {
 	}
 	
 	/**
-	 * Finds the command that corresponds to the input and executes the command on its document. prints the output of the command's execute() method. if the input does not match a command or it matches a null command, displays an error message.
+	 * Finds the command that corresponds to the input and executes the command on its document.
+	 * prints the output of the command's execute() method. if the input does not match a command
+	 * or it matches a null command, displays an error message.
+	 * 
 	 * @param data the input
 	 */
 	public void inputEntered(String data) {
 		Command command = commands.get(data.toLowerCase());
 		if(command == null) {
-			System.out.println("Sorry, we don't recognize that command");
+			System.out.println("Sorry, we don't recognize that command.");
 			return;
 		}
 		System.out.println(command.execute());
+		System.out.println(); // Extra endline for readability
 	}
 }

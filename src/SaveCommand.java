@@ -5,7 +5,11 @@
  */
 public class SaveCommand extends Command {
     
-    //May need code added, just removing inheritance errors
+    /**
+     * Constructor for SaveCommand. Calls the Commmand superclass constructor
+     * 
+     * @param doc the Document that the command will save to
+     */
     public SaveCommand(Document doc)
     {
         super(doc);

@@ -2,7 +2,8 @@ import java.util.ArrayList;
 
 /**
  * Document class
- * @author Eric Burkholder and <OTHER NAME HERE>
+ * 
+ * @author Eric Burkholder and Joshua Dietrich
  */
 public class Document {
     private String fileName;
@@ -15,6 +16,7 @@ public class Document {
 
     /**
      * Constructor. Creates an arraylist from the file's lines with FileManipulator.
+     * 
      * @param fileName the name of the target file
      */
     public Document(String fileName) {
@@ -24,6 +26,7 @@ public class Document {
 
     /**
      * Creates a String representation of the document complete with margins, top, and bottom edges
+     * 
      * @return a String representation of the document to view
      */
     public String view() {
@@ -59,28 +62,47 @@ public class Document {
         return viewStr.toString();
     }
 
+    /**
+     * Adds the given line to the end of the list
+     * 
+     * @param line the line to append to the document
+     * @return confirmation message
+     */
     public String append(String line) {
-
-        return "";
+        lines.add(line);
+        return "The line has been appended to the document.";
     }
 
+    /**
+     * Clears the lines list and adds the given line
+     * 
+     * @param line the line to write to the document
+     * @return confirmation message
+     */
     public String write(String line) {
-        
-        return "";
+        lines.clear();
+        lines.add(line);
+        return "The line was written to the file.";
     }
 
+    /**
+     * Saves the lines to the specified file. If an error occurs, returns the corresponding
+     * message
+     * 
+     * @return a success or error message depending on whether the file can be saved
+     */
     public String save() {
-        FileManipulator.writeFile(fileName, lines);
         if(FileManipulator.writeFile(fileName, lines)){
-            return "The file has been saved";
+            return "The file has been saved.";
         }
         else{
-            return "Sorry, we cannot save at this time";
+            return "Sorry, we cannot save at this time.";
         }
     }
 
     /**
      * Helper method. Finds the longest line's length
+     * 
      * @return the length of the longest line in the file
      */
     private int getLongestLength() {

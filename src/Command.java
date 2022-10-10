@@ -7,6 +7,11 @@
 public abstract class Command {
     protected Document document;
 
+    /**
+     * Constructor. Sets the document variable to the given param
+     * 
+     * @param document
+     */
     public Command(Document document)
     {
         this.document = document;
