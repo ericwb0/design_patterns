@@ -70,8 +70,13 @@ public class Document {
     }
 
     public String save() {
-        
-        return "";
+        FileManipulator.writeFile(fileName, lines);
+        if(FileManipulator.writeFile(fileName, lines)){
+            return "The file has been saved";
+        }
+        else{
+            return "Sorry, we cannot save at this time";
+        }
     }
 
     /**
