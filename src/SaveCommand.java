@@ -1,4 +1,8 @@
-
+/**
+ * 
+ * @author Joshua Dietrich
+ * 
+ */
 public class SaveCommand extends Command {
     
     //May need code added, just removing inheritance errors
@@ -9,6 +13,6 @@ public class SaveCommand extends Command {
 
     public String execute()
     {
-        return "";
+        return document.save();
     }
 }
