@@ -7,27 +7,35 @@ package state;
 public class HomeState implements State {
     private TV tv;
 
-    public HomeState() {
-
+    /**
+     * Constructor
+     * @param tv the TV to attach the state to. If null, the state will create a new TV.
+     */
+    public HomeState(TV tv) {
+        if(tv == null)
+            tv = new TV();
+        this.tv = tv;
     }
 
     public String pressHomeButton() {
-        return "";
+        return "TV is already on home screen\n";
     }
 
     public String pressNetflixButton() {
-        return "";
+        tv.setState(tv.getNetflixState());
+        return "Loading Netflix...\n";
     }
 
     public String pressHuluButton() {
-        return "";
+        tv.setState(tv.getHuluState());
+        return "Loading Hulu...\n";
     }
 
-    public String pressMovieButtonString() {
-        return "";
+    public String pressMovieButton() {
+        return "You must select an app to view movies!\n";
     }
 
     public String pressTVButton() {
-        return "";
+        return "You must select an app to view TV shows!\n";
     }
 }
